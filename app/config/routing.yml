@@ -1,0 +1,3 @@
+s2todo:
+    resource: "@s2todoBundle/Resources/config/routing.yml"
+    prefix:   /
