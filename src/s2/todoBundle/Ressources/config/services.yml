@@ -1,0 +1,37 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+home:
+    path:     /
+    defaults: { _controller: s2todoBundle:Front:home }
+
+fiche:
+    path:     /fiche/{id}
+    defaults: { _controller: s2todoBundle:Front:fiche }
+    requirements:
+       id:  \d+
+home_back:
+    path:     /back
+    defaults: { _controller: s2todoBundle:Back:home }
+
+fiche_back:
+    path:     /back/fiche/{id}
+    defaults: { _controller: s2todoBundle:Back:fiche }
+    requirements:
+        id:  \d+
+
+form_back:
+    path:     /back/form
+    defaults: { _controller: s2todoBundle:Back:form }
+
+form_back_modify:
+    path:     /back/form/{id}
+    defaults: { _controller: s2todoBundle:Back:form }
+    requirements:
+           id:  \d+
+
+form_back_delete:
+    path:     /back/delete/{id}
+    defaults: { _controller: s2todoBundle:Back:delete }
+    requirements:
+           id:  \d+
