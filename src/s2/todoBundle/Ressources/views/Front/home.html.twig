@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="panel panel-default"><?php //On utilise les style de boostrap 3 pour stylisé notre page      ?>
+    <div class="panel-heading">Mes évenements
+        <a href="{{ path("home_back") }}"  class="btn btn-default">Connexion</a>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr><td>Date</td>
+                <td>Titre</td>
+                <td>Adresse</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.date|date("m/d/Y H:i") }}</td>
+                <td>
+                    <a href="{{ path('fiche',{"id":event.id}) }}">{{ event.title }}</a>
+                </td>
+                <td>{{ event.adress }}</td>
+            </tr>
+           {% endfor %}
+        </tbody>
+    </table>
+</div>
+</table>
+{% endblock %}
