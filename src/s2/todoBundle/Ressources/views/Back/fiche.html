@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}s2todoBundle:Back:fiche{% endblock %}
+
+{% block body %}
+<div id="fiche">
+    <div class="panel">
+        <div class="panel-body">
+            <p>{{event.text}}</p>
+        </div>
+        <ul class="list-group">
+        {% if event.document is not empty %}
+            <li class="list-group-item">
+                Document : <a href="{{ asset(event.WebPath()) }}">{{ event.document }}</a>
+            </li>
+       {% endif %}
+            <li class="list-group-item">
+                Tags : 
+            {% for tag in event.tags %}
+                {{tag.name}}{% if loop.last == false %},{% endif %}
+            {% endfor %}
+            </li> 
+        </ul>
+    </div>
+{% endblock %}
